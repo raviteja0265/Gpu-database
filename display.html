@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Product Information</title>
+        <meta charset="utf-8"/>
+    </head>
+    <style>
+        body{
+            background-color: #FFEBCD;
+        }
+    </style>
+    <body>
+    < action="/view" method="post">
+        <b>name: </b>{{ myinfo.name }}<br/>
+        <b>manufacturer name: </b>{{ myinfo.manufacturer }}<br/>
+        <b>Date: </b>{{ myinfo.date }}<br/>
+        <b>geometry Shader: </b>{{ myinfo.geometryShader }}<br/>
+        <b>tesselation Shader: </b>{{ myinfo.tesselationShader }}<br/>
+        <b>shader int: </b>{{ myinfo.shaderInt16 }}<br/>
+        <b>sparse binding: </b>{{ myinfo.sparseBinding }}<br/>
+        <b>texture compression: </b>{{ myinfo.textureCompressionETC2 }}<br/>
+        <b>vertex pipeline stores and atomics: </b>{{ myinfo.vertexPipelineStoresAndAtomics }}<br/>
+
+        <a href="/view?name={{ myinfo.name }}">Edit</a><br/>
+        </form>
+    </body>
+</html>

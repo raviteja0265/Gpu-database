@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>GPU Database home</title>
+        <meta charset="utf-8"/>
+    </head>
+    <style>
+        p {
+            text-align: center;
+        }
+        body {
+            background-color: #FFEBCD;
+        }
+    </style>
+    <body>
+        <p>Goodbye, you can logout <a href="{{ logout_url }}">here</a></p>
+
+
+        <form action="/" method="post">
+            name: <input type="text" name="name"/><br/>
+            manufacturer: <input type="text" name="manufacturer"/><br/>
+            date: <input type="date" name="date"/><br/>
+            geometryShader: <input type="checkbox" name="geometryShader"/><br/>
+            tesselationShader: <input type="checkbox" name="tesselationShader"/><br/>
+            shaderInt16: <input type="checkbox" name="shaderInt16"/><br/>
+            sparseBinding: <input type="checkbox" name="sparseBinding"/><br/>
+            textureCompressionETC2: <input type="checkbox" name="textureCompressionETC2"/><br/>
+            vertexPipelineStoresAndAtomics: <input type="checkbox" name="vertexPipelineStoresAndAtomics"/><br/>
+            <input type="submit" name="button" value="add Information"/>
+        </form>
+        <br/>
+        <form action="/" method="post">
+        <table>
+            <tr>
+                <thead>
+                <th>
+                    Name
+                </th>
+                </thead>
+            </tr>
+
+
+            {% for myinfo in myinfos %}
+            <tr>
+                <td>
+                    <a href="/view?name={{ myinfo.name }}">{{myinfo.name}}</a>
+                </td>
+
+                <td>
+                    <form method="get" action="/compare">
+                        <select name="name">
+                            <option name="">select</option>
+                            {% for myinfo in myinfos %}
+                            {% if myinfo.name != name %}
+                            <option value="{{ myinfo.name }}" >{{ myinfo.name }}</option>
+                            {% endif %}
+                            {% endfor %}
+                            <input type="hidden" name="current_info" value="{{myinfo.current_name}}"/>
+                            <input type="submit" value="compare"/>
+                        </select>
+                    </form>
+                </td>
+            </tr>
+            <br/>
+            <form action="/" method="post">
+                <input type="hidden" name="index" value="{{ loop.index-1 }}"/>
+            </form>
+            {% endfor %}
+            <div>
+                {% if message %}
+                <p>{{ message }}</p>
+                {% endif %}
+            </div>
+        </table>
+        </form>
+    </body>
+</html>

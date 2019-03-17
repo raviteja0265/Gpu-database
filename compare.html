@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>Compare products</title>
+        <meta charset="utf-8"/>
+    </head>
+    <style>
+        body{
+            background-color: #FFEBCD;
+        }
+    </style>
+    <body>
+    <table align="center">
+        <tr>
+            <th>Comparison</th>
+        </tr>
+
+        <tr>
+            <td>name</td>
+            {% for myinfo in myinfos %}
+            <td>{{ myinfo.name }}</td>
+            {% endfor %}
+        </tr>
+
+        <tr>
+            <td>geometry Shader</td>
+            {% for myinfo in myinfos %}
+            {% if myinfo.geometryShader %}
+            <td><input name="" type="checkbox" checked disabled/></td>
+            {% else %}
+            <td><input name="" type="checkbox" disabled/></td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+
+        <tr>
+            <td>tesselation Shader</td>
+            {% for myinfo in myinfos %}
+            {% if myinfo.tesselationShader %}
+            <td><input name="" type="checkbox" checked disabled/></td>
+            {% else %}
+            <td><input name="" type="checkbox" disabled/></td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+
+        <tr>
+            <td>shaderInt16</td>
+            {% for myinfo in myinfos %}
+            {% if myinfo.shaderInt16 %}
+            <td><input name="" type="checkbox" checked disabled/></td>
+            {% else %}
+            <td><input name="" type="checkbox" disabled/></td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+
+        <tr>
+            <td>sparseBinding</td>
+            {% for myinfo in myinfos %}
+            {% if myinfo.sparseBinding %}
+            <td><input name="" type="checkbox" checked disabled/></td>
+            {% else %}
+            <td><input name="" type="checkbox" disabled/></td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+
+        <tr>
+            <td>textureCompressionETC2</td>
+            {% for myinfo in myinfos %}
+            {% if myinfo.textureCompressionETC2 %}
+            <td><input name="" type="checkbox" checked disabled/></td>
+            {% else %}
+            <td><input name="" type="checkbox" disabled/></td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+
+        <tr>
+            <td>vertexPipelineStoresAndAtomics</td>
+            {% for myinfo in myinfos %}
+            {% if myinfo.vertexPipelineStoresAndAtomics %}
+            <td><input name="" type="checkbox" checked disabled/></td>
+            {% else %}
+            <td><input name="" type="checkbox" disabled/></td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+    </table>
+    </body>
+</html>

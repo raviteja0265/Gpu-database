@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Edit the product details here</title>
+    </head>
+    <style>
+        body{
+            background-color: #FFEBCD;
+        }
+    </style>
+    <body>
+        <form method="post" action="/edit">
+            name: <input type="text" value={{"myinfo.name"}} disabled /><br/>
+            manufacturer: <input type="text" name={{"myinfo.manufacturer"}}/><br/>
+            date: <input type="date" name={{"myinfo.date"}} /><br/>
+            {% if myinfo.geometryShader %}
+            geometryShader: <input type="checkbox" name={{"myinfo.geometryShader"}} checked/><br/>
+            {% else %}
+            geometryShader: <input type="checkbox" name={{"myinfo.geometryShader"}} /><br/>
+            {% if myinfo.tesselationShader %}
+            tesselationShader: <input type="checkbox" name={{"myinfo.tesselationShader"}} checked/><br/>
+            {% else %}
+            tesselationShader: <input type="checkbox" name={{"myinfo.tesselationShader"}} /><br/>
+            {% if myinfo.shaderInt16 %}
+            shaderInt16: <input type="checkbox" name={{"myinfo.shaderInt16"}} checked/><br/>
+            {% else %}
+            shaderInt16: <input type="checkbox" name={{"myinfo.shaderInt16"}} /><br/>
+            {% if myinfo.sparseBinding %}
+            sparseBinding: <input type="checkbox" name={{"myinfo.sparseBinding"}} checked/><br/>
+            {% else %}
+            sparseBinding: <input type="checkbox" name={{"myinfo.sparseBinding"}} /><br/>
+            {% if myinfo.textureCompressionETC2 %}
+            textureCompressionETC2: <input type="checkbox" name={{"myinfo.textureCompressionETC2"}} checked/><br/>
+            {% else %}
+            textureCompressionETC2: <input type="checkbox" name={{"myinfo.textureCompressionETC2"}} /><br/>
+            {% if myinfo.vertexPipelineStoresAndAtomics%}
+            vertexPipelineStoresAndAtomics: <input type="checkbox" name={{"myinfo.vertexPipelineStoresAndAtomics"}} checked/><br/>
+            {% else %}
+            ertexPipelineStoresAndAtomics: <input type="checkbox" name={{"myinfo.vertexPipelineStoresAndAtomics"}} /><br/>
+            {% endif %}
+            <input type="submit" name="button" value="Update Information"/>
+        </form>
+        <br/>
+    </body>
+</html>
